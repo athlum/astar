@@ -86,6 +86,7 @@ type Engine struct {
 }
 
 func newEngine() *Engine {
+	rand.Seed(int64(time.Now().Unix()))
 	return &Engine{
 		Map:    Map,
 		Edge:   Edge,
