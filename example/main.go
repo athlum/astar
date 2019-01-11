@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/athlum/astar"
+	"github.com/athlum/bstar"
 	tm "github.com/buger/goterm"
 	"math/rand"
 	"time"
@@ -86,7 +86,7 @@ type Engine struct {
 }
 
 func newEngine() *Engine {
-	rand.Seed(int64(time.Now().Unix()))
+	// rand.Seed(int64(time.Now().Unix()))
 	return &Engine{
 		Map:    Map,
 		Edge:   Edge,
@@ -176,7 +176,7 @@ func main() {
 			}
 			fmt.Println("Game Over", time.Duration(int(d)/len(seps)))
 			return
-		case <-time.After(time.Millisecond * 100):
+		case <-time.After(time.Millisecond * 1000):
 			e.flush()
 			tm.MoveCursor(1, 1)
 			tm.Println(e.ToMap(e.state()))
